@@ -7,6 +7,7 @@ const sequelize = new Sequelize(
   config.PASSWORD,
   {
     host: config.HOST,
+    port:config.PORT,
     dialect: config.dialect,
     pool: {
       max: config.pool.max,
@@ -31,11 +32,17 @@ db.role = require("../model/role.model.js")(sequelize, Sequelize);
 db.user_roles =  require("../model/user_roles.model.js")(sequelize, Sequelize);
 db.div_depart = require("../model/div_depart.model.js")(sequelize, Sequelize);
 db.depart_director = require("../model/depart_director.js")(sequelize, Sequelize);
-db.news = require("../model/news.model")(sequelize, Sequelize);
 db.settings = require("../model/settings.model")(sequelize, Sequelize);
 
-db.news.hasMany(db.user);
-db.user.belongsTo(db.news);
+db.article = require("./article.model")(sequelize, Sequelize);
+db.user.hasOne(db.article);
+db.article.belongsTo(db.user);
+db.tag = require("../model/tag.model")(sequelize, Sequelize);
+db.article_tags = require("../model/article_tags.model")(sequelize, Sequelize);
+db.article.belongsToMany(db.tag, { through: db.article_tags });
+db.tag.belongsToMany(db.article, { through: db.article_tags });
+
+
 db.user.belongsTo(db.departments);
 db.departments.hasMany(db.user);
 db.user.belongsTo(db.directors);

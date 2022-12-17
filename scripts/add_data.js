@@ -45,6 +45,55 @@ function addDirector() {
     ]
   db.directors.bulkCreate(dt);
 }
+
+function addTags() {
+  const dt = [
+      {
+        name: "News",
+      },
+      {
+        name: "Politic",
+      },
+      {
+        name: "Business",
+      },
+      {
+        name: "Technology",
+      },
+      {
+        name: "Conspiracy",
+      },
+      {
+        name: "Economy",
+      },
+      {
+        name: "General",
+      },
+      {
+        name: "Health",
+      },
+      {
+        name: "Travel",
+      },
+      {
+        name: "Food",
+      },
+      {
+        name: "Finance",
+      },
+      {
+        name: "Sport",
+      },
+      {
+        name: "Oto",
+      },
+      {
+        name: "Hot",
+      },
+    ]
+  db.tag.bulkCreate(dt);
+}
+
 function addDepartment() {
   const Department = db.departments;
   const dt = [
@@ -137,7 +186,8 @@ module.exports = {
     addDirector,
     addDepartment,
     addDivision,
-    addAdmin
+    addAdmin,
+    addTags
   }
 
 

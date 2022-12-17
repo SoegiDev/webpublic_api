@@ -15,3 +15,5 @@ module.exports = (sequelize) => {
 
   return Department;
 };
+
+

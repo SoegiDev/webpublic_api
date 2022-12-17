@@ -1,9 +1,10 @@
 const Sequelize = require("sequelize");
 module.exports = {
-    HOST: "103.187.146.183",
+    HOST: "103.187.146.246",
     USER: "postgres",
-    PASSWORD: "fajarsoegi1901",
-    DB: "company_profile",
+    PASSWORD: "password",
+    DB: "web_public",
+    PORT:5437,
     dialect: "postgres",
     pool: {
       max: 25,

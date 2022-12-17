@@ -1,7 +1,7 @@
 const db = require("../model");
 const Op = db.Sequelize.Op;
 const {getPagination,getPagingData} = require("../helper/pagination");
-const News = require("../module/news");
+const News = require("../module/articles");
 const { uploadFileS3, getFileStream } = require("../module/aws_upload");
 const fs = require("fs");
 const util = require("util");
